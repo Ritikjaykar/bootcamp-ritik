@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Merriweather:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+    <section class="variable-font-demo">
+        <p id="variable-text">This text weight can change with the slider!</p>
+        <label for="weight-slider">Font Weight:</label>
+        <input type="range" id="weight-slider" min="100" max="900" step="1" value="400">
+      </section>
+      
+      <script>
+        const slider = document.getElementById('weight-slider');
+        const text = document.getElementById('variable-text');
+      
+        slider.addEventListener('input', () => {
+          text.style.fontWeight = slider.value;
+        });
+      </script>
+      
+</body>
+</html>

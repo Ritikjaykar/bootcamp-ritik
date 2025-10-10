@@ -1,0 +1,23 @@
+/* Code blocks */
+pre {
+    background-color: var(--color-surface); /* matches your theme surface */
+    padding: var(--space-2);               /* spacing inside the block */
+    overflow-x: auto;                       /* horizontal scroll if long code */
+    border-radius: 0.5rem;                  /* slightly rounded corners */
+  }
+  
+  code {
+    font-family: 'Geist Mono', monospace; /* monospaced for clarity */
+    font-weight: 400;
+    color: var(--color-accent);           /* code text color */
+  }
+  
+  /* Blockquote */
+  blockquote {
+    border-left: 4px solid var(--color-accent); /* vertical line for emphasis */
+    padding-left: var(--space-2);               /* spacing between text and border */
+    color: var(--color-text);
+    font-style: italic;                         /* differentiates from regular text */
+    margin: var(--space-2) 0;                   /* spacing above and below */
+  }
+  

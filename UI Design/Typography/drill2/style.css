@@ -1,0 +1,15 @@
+/* Body uses Inter */
+body {
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  
+  /* Headings use Merriweather */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', Georgia, "Times New Roman", serif;
+  }
+  
+  /* Code blocks use Source Code Pro */
+  code, pre {
+    font-family: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  

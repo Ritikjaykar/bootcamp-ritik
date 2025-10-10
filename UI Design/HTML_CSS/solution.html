@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <header>
+      <h2>My Medium-Like Article</h2>
+    </header>
+    <main>
+      <section class="hero">
+        <h1>Welcome to My Article</h1>
+        <p>Discover amazing movies, books, and insights!</p>
+      </section>
+      
+      <article>
+        <h2>Top 5 Movies to Watch</h2>
+        <ol>
+          <li>Inception</li>
+          <li>The Dark Knight</li>
+          <li>Interstellar</li>
+          <li>Parasite</li>
+          <li>The Matrix</li>
+        </ol>
+
+        <h3>Books to Read</h3>
+        <ul>
+          <li>1984</li>
+          <li>Atomic Habits</li>
+          <li>Thinking, Fast and Slow</li>
+        </ul>
+
+        <img src="https://picsum.photos/800/400" alt="Random scenic image">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Year</th>
+              <th>Genre</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Welcome</td>
+              <td>2010</td>
+              <td>Comedy</td>
+            </tr>
+            <tr>
+              <td>Phir Hera Pheri</td>
+              <td>2010</td>
+              <td>Comedy</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+    </main>
+
+  </div>
+
+  <script>
+    const toggleTheme = () => {
+      const html = document.documentElement; // get <html>
+      html.dataset.theme = html.dataset.theme === "dark" ? "" : "dark"; 
+    }
+  </script>
+
+<button onclick="toggleTheme()" style="position: absolute; top: 1rem; right: 1rem; padding: 0.5rem 1rem;">
+  Toggle Theme
+</button>
+</body>
+</html>

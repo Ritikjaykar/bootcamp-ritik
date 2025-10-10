@@ -1,0 +1,109 @@
+
+:root {
+    --bg-color: #f9fafb;
+    --text-color: #1f2937;
+    --accent-color: #2563eb;
+    --link-hover: #1d4ed8;
+    --card-bg: #ffffff;
+    --border-color: #e5e7eb;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  [data-theme="dark"] {
+    --bg-color: #0f172a;
+    --text-color: #f1f5f9;
+    --accent-color: #60a5fa;
+    --link-hover: #93c5fd;
+    --card-bg: #1e293b;
+    --border-color: #334155;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 2rem;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* ============ HEADERS ============ */
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+  }
+  
+  p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 2rem auto;
+  }
+  
+  /* ============ LINKS ============ */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+  
+  ul li {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.8rem 0;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+  }
+  
+  ul li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  }
+  
+  ul li a {
+    text-decoration: none;
+    color: var(--accent-color);
+    font-weight: 600;
+    display: block;
+  }
+  
+  ul li a:hover {
+    color: var(--link-hover);
+  }
+  
+  /* ============ BACK LINK ============ */
+  p a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  p a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ============ THEME TOGGLE (optional JS hook) ============ */
+  button.toggle-theme {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+  }
+  
+  button.toggle-theme:hover {
+    background-color: var(--link-hover);
+  }
+  

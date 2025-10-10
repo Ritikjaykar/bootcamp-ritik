@@ -1,0 +1,55 @@
+/* HSL tokens*/
+:root{
+    /* base palette */
+    --bg-h: 210;   /* hue for background (blue-ish) */
+    --bg-s: 20;
+    --bg-l: 98;
+  
+    --surface-h: 210;
+    --surface-s: 14;
+    --surface-l: 96;
+  
+    --text-h: 220;
+    --text-s: 10;
+    --text-l: 10;
+  
+    /* accent as components so we can vary hue/lightness */
+    --accent-h: 260;
+    --accent-s: 60;
+    --accent-l: 46;
+  
+    /* derived HSL strings (use with hsl(var(..) var(..)% var(..)%)) */
+    --bg: hsl(var(--bg-h) var(--bg-s)% var(--bg-l)%);
+    --surface: hsl(var(--surface-h) var(--surface-s)% var(--surface-l)%);
+    --text: hsl(var(--text-h) var(--text-s)% var(--text-l)%);
+    --accent: hsl(var(--accent-h) var(--accent-s)% var(--accent-l)%);
+  }
+  
+  /* Example derived variants */
+  /* monochrome (same hue, different L) */
+  :root{
+    --mono-100: hsl(var(--accent-h) var(--accent-s)% calc(var(--accent-l) + 30%));
+    --mono-80:  hsl(var(--accent-h) var(--accent-s)% calc(var(--accent-l) + 15%));
+    --mono-60:  hsl(var(--accent-h) var(--accent-s)% var(--accent-l));
+    --mono-40:  hsl(var(--accent-h) var(--accent-s)% calc(var(--accent-l) - 15%));
+  }
+  
+  /* complementary (hue + 180) */
+  :root{
+    --accent-complement-h: calc((var(--accent-h) + 180) % 360);
+    --accent-complement: hsl(var(--accent-complement-h) var(--accent-s)% var(--accent-l)%);
+  }
+  
+  /* triad (hue +/- 120) */
+  :root{
+    --triad-left-h: calc((var(--accent-h) + 120) % 360);
+    --triad-right-h: calc((var(--accent-h) + 240) % 360);
+    --triad-left: hsl(var(--triad-left-h) var(--accent-s)% var(--accent-l)%);
+    --triad-right: hsl(var(--triad-right-h) var(--accent-s)% var(--accent-l)%);
+  }
+  
+  /* Example usage on components */
+  body { background: var(--bg); color: var(--text); }
+  .card { background: var(--surface); border-radius: 8px; padding: 1rem; box-shadow: 0 6px 12px rgba(0,0,0,0.04); }
+  a, .accent { color: var(--accent); }
+  

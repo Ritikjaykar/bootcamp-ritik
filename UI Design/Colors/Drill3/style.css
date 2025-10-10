@@ -1,0 +1,22 @@
+/* OKLCH tokens (light theme) */
+:root{
+    --accent-ok: oklch(0.62 0.15 260); /* l c h */
+    --text-ok: oklch(0.13 0.02 260);
+  }
+  
+  /* dark theme overrides (keep similar perceived lightness changes) */
+  :root[data-theme="dark"]{
+    --accent-ok: oklch(0.72 0.12 260);
+    --text-ok: oklch(0.95 0.02 260); /* light text on dark bg */
+  }
+  
+  /* Use with color() function or directly (modern browsers accept oklch() as color value) */
+  :root{
+    --accent: color-mix(in oklab, var(--accent-ok) 100%); /* fallback technique */
+    --text: color-mix(in oklab, var(--text-ok) 100%);
+  }
+  
+  /* Or directly (if OKLCH supported): */
+  a { color: var(--accent-ok); }
+  body { color: var(--text-ok); }
+  
