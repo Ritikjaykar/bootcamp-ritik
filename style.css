@@ -48,11 +48,18 @@ body {
     font-weight: bold;
   }
   
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #023e8a;
-    color: white;
-    margin-top: 2rem;
-  }
-  
+/* Footer styling */
+footer {
+  background-color: #1e1e2f; /* Dark background */
+  color: #f5f5f5;            /* Light text */
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  border-top: 1px solid #444;
+}
+
+footer p {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
