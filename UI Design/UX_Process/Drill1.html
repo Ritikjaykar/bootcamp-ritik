@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drill 1 - Task Audit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .task-flow {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .friction-point {
+            background: #fff3cd;
+            padding: 1rem;
+            border-left: 4px solid #ffc107;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drill 1: Task Audit</h1>
+    <h2>Task: "Find the latest press release"</h2>
+    
+    <div class="task-flow">
+        <h3>Ideal 5-Step Flow:</h3>
+        <ol>
+            <li>User lands on homepage</li>
+            <li>Sees clear "News" or "Press" section</li>
+            <li>Clicks on press section</li>
+            <li>Views list of press releases sorted by date</li>
+            <li>Clicks on most recent release to read</li>
+        </ol>
+    </div>
+
+    <div class="friction-point">
+        <h3>Current Friction Points:</h3>
+        <ul>
+            <li>No dedicated press section in navigation</li>
+            <li>Press releases mixed with blog posts</li>
+            <li>No clear date sorting</li>
+            <li>Small click targets on mobile</li>
+            <li>Slow loading of news images</li>
+        </ul>
+    </div>
+
+    <div class="task-flow">
+        <h3>Proposed Fixes:</h3>
+        <ul>
+            <li>Add "Press" to main navigation</li>
+            <li>Create separate press release section</li>
+            <li>Sort by publication date (newest first)</li>
+            <li>Increase touch target sizes</li>
+            <li>Optimize and lazy load images</li>
+        </ul>
+    </div>
+</body>
+</html>

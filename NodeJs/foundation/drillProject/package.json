@@ -1,0 +1,24 @@
+{
+  "name": "drillproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "tsx watch src/index.ts --debug",
+    "lint": "eslint .",
+    "both": "echo one && echo two"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.37.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

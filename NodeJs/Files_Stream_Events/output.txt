@@ -1,0 +1,3 @@
+Hello Node.js!
+This is a test for piping and transform streams.
+Node.js streams are powerful.

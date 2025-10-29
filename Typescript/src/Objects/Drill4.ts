@@ -1,20 +1,20 @@
-interface Dictionary {
-  [key: string]: string;
-}
+// interface Dictionary {
+//   [key: string]: string;
+// }
 
-const greetings: Dictionary = {
-  en: "Hello",
-  fr: "Bonjour",
-  hi: "Namaste",
-};
-console.log("Greetings:", greetings);
+// const greetings: Dictionary = {
+//   en: "Hello",
+//   fr: "Bonjour",
+//   hi: "Namaste",
+// };
+// console.log("Greetings:", greetings);
 
-interface FlexibleDictionary {
-  [key: string]: string | number;
-}
+// interface FlexibleDictionary {
+//   [key: string]: string | number;
+// }
 
-const mixed: FlexibleDictionary = {
-  apples: 10,
-  message: "Hi",
-};
-console.log("Flexible Dictionary:", mixed);
+// const mixed: FlexibleDictionary = {
+//   apples: 10,
+//   message: "Hi",
+// };
+// console.log("Flexible Dictionary:", mixed);

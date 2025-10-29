@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Project — Company Teaser</title>
+  <style>
+    :root {
+      --space-1: 0.5rem;
+      --space-2: 1rem;
+      --space-3: 1.5rem;
+      --space-4: 2rem;
+      --space-5: 3rem;
+      --space-6: 4rem;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header {
+      background: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: var(--space-4);
+    }
+
+    .hero {
+      text-align: center;
+      padding: var(--space-6) var(--space-3);
+      background: linear-gradient(135deg, #0a0a23, #4a4ae6);
+      color: white;
+    }
+
+    .hero h1 {
+      margin-bottom: var(--space-2);
+      font-size: 2.5rem;
+    }
+
+    .features {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      padding: var(--space-5);
+      background: #fafafa;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: var(--space-3);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card h3 {
+      margin-bottom: var(--space-2);
+    }
+
+    footer {
+      background: #0a0a23;
+      color: white;
+      text-align: center;
+      padding: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>Ritik Labs</h2>
+  </header>
+
+  <section class="hero">
+    <h1>Clean Design, Clear Focus</h1>
+    <p>We build thoughtful digital experiences with simplicity and speed.</p>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <h3>Performance</h3>
+      <p>Lightning-fast pages optimized for users and search engines.</p>
+    </div>
+    <div class="card">
+      <h3>Design</h3>
+      <p>Intuitive, modern interfaces that users love to explore.</p>
+    </div>
+    <div class="card">
+      <h3>Scalability</h3>
+      <p>Built to grow with your business — from startup to scale-up.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Ritik Labs — Crafted with consistency & clarity</p>
+  </footer>
+</body>
+</html>

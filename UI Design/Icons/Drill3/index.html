@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drill 3 - Nav & Actions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    /* Navbar styles */
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .icon-font {
+      font-family: 'Material Symbols Outlined';
+      font-size: 32px;
+      color: #0077ff;
+    }
+
+    /* Buttons */
+    button {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 12px;
+      font-size: 16px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      background: #fff;
+      border-radius: 4px;
+      margin-right: 10px;
+    }
+
+    .icon-svg {
+      width: 24px;
+      height: 24px;
+      fill: #0077ff;
+      stroke: #000;
+      stroke-width: 1;
+    }
+  </style>
+</head>
+<body>
+  <h2>Navbar</h2>
+  <nav>
+    <ul>
+      <li>
+        <span class="icon-font" aria-hidden="true">home</span>
+        <span>Home</span>
+      </li>
+      <li>
+        <span class="icon-font" aria-hidden="true">search</span>
+        <span>Search</span>
+      </li>
+      <li>
+        <span class="icon-font" aria-hidden="true">settings</span>
+        <span>Settings</span>
+      </li>
+    </ul>
+  </nav>
+
+  <h2>Action Buttons</h2>
+  <button>
+    <svg class="icon-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M4 4h16v16H4z"/> <!-- A simple download icon -->
+    </svg>
+    <span>Download</span>
+  </button>
+
+  <button>
+    <svg class="icon-svg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 4v16M4 12h16"/> <!-- A simple upload icon -->
+    </svg>
+    <span>Upload</span>
+  </button>
+</body>
+</html>

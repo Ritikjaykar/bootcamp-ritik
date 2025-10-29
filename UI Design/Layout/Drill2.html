@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drill 2 — Homepage Skeleton</title>
+  <style>
+    :root {
+      --space-1: 0.5rem;
+      --space-2: 1rem;
+      --space-3: 1.5rem;
+      --space-4: 2rem;
+      --space-5: 3rem;
+      --space-6: 4rem;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    header, footer {
+      background: #f7f7f7;
+      padding: var(--space-4);
+      text-align: center;
+    }
+
+    .hero {
+      padding: var(--space-6) var(--space-4);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-3);
+    }
+
+    .features {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      padding: var(--space-5);
+    }
+
+    .card {
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h2>My Website</h2>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Our Landing Page</h1>
+    <p>Discover simple, clean, and responsive layouts.</p>
+  </section>
+
+  <section class="features">
+    <div class="card">
+      <h3>Fast</h3>
+      <p>Built with performance in mind.</p>
+    </div>
+    <div class="card">
+      <h3>Responsive</h3>
+      <p>Looks great on any screen size.</p>
+    </div>
+    <div class="card">
+      <h3>Accessible</h3>
+      <p>Designed for everyone.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Ritik Jaykar | All rights reserved</p>
+  </footer>
+</body>
+</html>

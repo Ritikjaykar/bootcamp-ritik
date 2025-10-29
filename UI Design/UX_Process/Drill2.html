@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drill 2 - Microcopy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .microcopy-comparison {
+            display: grid;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .before, .after {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        .before {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        .after {
+            background: #d1edff;
+            border-left: 4px solid #007bff;
+        }
+        .example {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: white;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drill 2: Microcopy Improvements</h1>
+    
+    <div class="microcopy-comparison">
+        <div class="before">
+            <h2>Before - Unclear/Clever</h2>
+            
+            <div class="example">
+                <h3>1. Button Label</h3>
+                <p><strong>Old:</strong> "Initiate Process"</p>
+                <button style="padding: 0.5rem 1rem; margin: 0.5rem 0;">Initiate Process</button>
+            </div>
+
+            <div class="example">
+                <h3>2. Empty State</h3>
+                <p><strong>Old:</strong> "No items found in this category"</p>
+                <div style="text-align: center; padding: 2rem; background: #f8f9fa;">
+                    No items found in this category
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>3. Error Message</h3>
+                <p><strong>Old:</strong> "Submission failure - invalid parameters"</p>
+                <div style="color: #dc3545; padding: 1rem; background: #f8d7da;">
+                    Submission failure - invalid parameters
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>4. Form Helper Text</h3>
+                <p><strong>Old:</strong> "Enter alphanumeric string"</p>
+                <input type="text" placeholder="Username" style="padding: 0.5rem; width: 100%;">
+                <small>Enter alphanumeric string</small>
+            </div>
+
+            <div class="example">
+                <h3>5. Loading Message</h3>
+                <p><strong>Old:</strong> "Processing request..."</p>
+                <div style="text-align: center; padding: 1rem;">
+                    Processing request...
+                </div>
+            </div>
+        </div>
+
+        <div class="after">
+            <h2>After - Clear & Helpful</h2>
+            
+            <div class="example">
+                <h3>1. Button Label</h3>
+                <p><strong>New:</strong> "Download Report"</p>
+                <button style="padding: 0.5rem 1rem; margin: 0.5rem 0; background: #007bff; color: white; border: none; border-radius: 4px;">Download Report</button>
+            </div>
+
+            <div class="example">
+                <h3>2. Empty State</h3>
+                <p><strong>New:</strong> "No press releases yet. Check back soon for updates."</p>
+                <div style="text-align: center; padding: 2rem; background: #e9ecef;">
+                    <p>No press releases yet.</p>
+                    <p>Check back soon for updates.</p>
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>3. Error Message</h3>
+                <p><strong>New:</strong> "Please check your email format and try again."</p>
+                <div style="color: #856404; padding: 1rem; background: #fff3cd;">
+                    Please check your email format and try again.
+                </div>
+            </div>
+
+            <div class="example">
+                <h3>4. Form Helper Text</h3>
+                <p><strong>New:</strong> "Choose a username with letters and numbers only"</p>
+                <input type="text" placeholder="Username" style="padding: 0.5rem; width: 100%;">
+                <small>Choose a username with letters and numbers only</small>
+            </div>
+
+            <div class="example">
+                <h3>5. Loading Message</h3>
+                <p><strong>New:</strong> "Loading your documents..."</p>
+                <div style="text-align: center; padding: 1rem;">
+                    Loading your documents...
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

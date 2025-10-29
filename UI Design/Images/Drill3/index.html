@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drill 3 - Responsive Picture</title>
+  <style>
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 10px 0;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h2>Responsive Picture</h2>
+  <picture>
+    <!-- WebP for supported browsers -->
+    <source type="image/webp" srcset="https://picsum.photos/800/600.webp 1x, https://picsum.photos/1600/1200.webp 2x" sizes="(max-width: 600px) 100vw, 50vw">
+    <!-- JPG fallback -->
+    <img src="https://picsum.photos/800/600.jpg" 
+         srcset="https://picsum.photos/800/600.jpg 1x, https://picsum.photos/1600/1200.jpg 2x" 
+         sizes="(max-width: 600px) 100vw, 50vw" 
+         alt="Responsive Sample" 
+         loading="lazy" 
+         decoding="async">
+  </picture>
+</body>
+</html>

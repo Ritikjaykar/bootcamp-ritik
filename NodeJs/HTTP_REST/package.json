@@ -1,0 +1,31 @@
+{
+  "name": "http_rest",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node drill1.js",
+    "dev:drill1": "nodemon drill1.js",
+    "dev:drill2": "nodemon drill2.js",
+    "dev:drill3": "nodemon drill3.js",
+    "dev:drill4": "nodemon drill4.js",
+    "dev:drill5": "nodemon drill5.js",
+    "dev:drill6": "nodemon drill6.js",
+    "dev:drill7": "nodemon drill7.js",
+    "dev:drill8": "nodemon drill8.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "pino": "^10.0.0",
+    "uuid": "^13.0.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

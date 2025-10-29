@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini-Project Toolbar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f2f2f2;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+    }
+
+    .toolbar button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 4px;
+      transition: transform 0.2s, background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toolbar button:hover {
+      background: #ddd;
+      transform: scale(1.1);
+    }
+
+    .toolbar button:focus-visible {
+      outline: 2px solid #0077ff;
+      outline-offset: 2px;
+    }
+
+    .icon-svg {
+      width: 24px;
+      height: 24px;
+      fill: #333;
+      stroke: #000;
+      stroke-width: 1;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Mini-Project Toolbar</h2>
+
+  <header>
+    <div class="toolbar" role="toolbar" aria-label="Text formatting toolbar">
+      <button aria-label="Bold">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <path d="M6 4h8a4 4 0 0 1 0 8H6V4z"/>
+        </svg>
+      </button>
+      <button aria-label="Italic">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <path d="M10 4h4M10 20h4M14 4l-4 16"/>
+        </svg>
+      </button>
+      <button aria-label="Underline">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <path d="M6 4v10a6 6 0 0 0 12 0V4"/>
+          <line x1="6" y1="20" x2="18" y2="20"/>
+        </svg>
+      </button>
+      <button aria-label="Cut">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <path d="M6 4l12 16M6 20l12-16"/>
+        </svg>
+      </button>
+      <button aria-label="Copy">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <rect x="6" y="6" width="12" height="12"/>
+          <rect x="4" y="4" width="12" height="12" fill="none" stroke="black"/>
+        </svg>
+      </button>
+      <button aria-label="Paste">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <rect x="6" y="4" width="12" height="16"/>
+          <line x1="6" y1="8" x2="18" y2="8"/>
+        </svg>
+      </button>
+      <button aria-label="Undo">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <path d="M12 8v-4L6 8l6 4v-4h6a6 6 0 1 1 0 12h-1"/>
+        </svg>
+      </button>
+      <button aria-label="Redo">
+        <svg class="icon-svg" viewBox="0 0 24 24">
+          <path d="M12 16v4l6-4-6-4v4H6a6 6 0 1 0 0-12h1"/>
+        </svg>
+      </button>
+    </div>
+    <div>Toolbar Header Example</div>
+  </header>
+</body>
+</html>

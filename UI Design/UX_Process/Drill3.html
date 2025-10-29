@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drill 3 - States & Feedback</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Focus styles */
+        button:focus-visible, 
+        input:focus-visible, 
+        a:focus-visible {
+            outline: 3px solid #007bff;
+            outline-offset: 2px;
+        }
+        
+        /* Loading skeleton */
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            border-radius: 4px;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        .skeleton-text {
+            height: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skeleton-title {
+            height: 2rem;
+            width: 70%;
+            margin-bottom: 1rem;
+        }
+        
+        /* Error alert */
+        .alert {
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border-left: 4px solid;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+        
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drill 3: States & Feedback</h1>
+    
+    <div class="demo-section">
+        <h2>Visible Focus Styles</h2>
+        <p>Try tabbing through these elements:</p>
+        <button style="padding: 0.5rem 1rem; margin: 0.5rem;">Click me</button>
+        <input type="text" placeholder="Type here" style="padding: 0.5rem; margin: 0.5rem;">
+        <a href="#" style="display: inline-block; padding: 0.5rem 1rem; background: #007bff; color: white; text-decoration: none; border-radius: 4px;">Example link</a>
+    </div>
+
+    <div class="demo-section">
+        <h2>Loading Skeleton (CSS Only)</h2>
+        <div class="skeleton skeleton-title"></div>
+        <div class="skeleton skeleton-text" style="width: 90%;"></div>
+        <div class="skeleton skeleton-text" style="width: 80%;"></div>
+        <div class="skeleton skeleton-text" style="width: 85%;"></div>
+        <div class="skeleton" style="height: 200px; margin-top: 1rem;"></div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Error & Success States</h2>
+        
+        <div class="alert alert-error" role="alert" aria-live="polite">
+            <strong>Error:</strong> We couldn't save your changes. Please check your connection and try again.
+        </div>
+        
+        <div class="alert alert-success" role="status" aria-live="polite">
+            <strong>Success!</strong> Your document has been uploaded successfully.
+        </div>
+        
+        <button onclick="showAlert()" style="padding: 0.5rem 1rem; margin: 0.5rem 0;">
+            Simulate Form Submission
+        </button>
+    </div>
+
+    <script>
+        function showAlert() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.style.display = 'block';
+            });
+            
+            // Hide alerts after 5 seconds
+            setTimeout(() => {
+                alerts.forEach(alert => {
+                    alert.style.display = 'none';
+                });
+            }, 5000);
+        }
+        
+        // Initially hide alerts
+        document.addEventListener('DOMContentLoaded', () => {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

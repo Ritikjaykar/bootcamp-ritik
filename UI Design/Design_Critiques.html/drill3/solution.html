@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Level 3 — Targeted Redesigns (Press + Faculty)</title>
+  <style>
+    /* --------- Spacing scale & base --------- */
+    :root{
+      --space-1: 0.5rem;
+      --space-2: 1rem;
+      --space-3: 1.5rem;
+      --space-4: 2rem;
+      --space-5: 3rem;
+      --space-6: 4rem;
+
+      --bg: hsl(210 30% 98%);
+      --card: #ffffff;
+      --muted: #6b7280;
+      --primary: hsl(0, 0%, 0%);   /* blue */
+      --accent: hsl(0, 0%, 0%);    /* lighter blue */
+      --focus: 3px solid color-mix(in srgb, var(--accent) 70%, black 10%);
+      --radius: 10px;
+      --max-width: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+    html,body { height:100%; }
+    body {
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: var(--bg);
+      color: #0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      padding: var(--space-4);
+      display: flex;
+      justify-content: center;
+    }
+
+    .site {
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    header.site-header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: var(--space-3);
+      background: linear-gradient(90deg, color-mix(in srgb, var(--primary) 85%, white 5%), var(--accent));
+      padding: var(--space-3) var(--space-4);
+      border-radius: calc(var(--radius) * 1.2);
+      color: white;
+      margin-bottom: var(--space-4);
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap: var(--space-2);
+    }
+
+    .brand .logo {
+      width:44px; height:44px; border-radius:8px;
+      background: rgba(255,255,255,0.15);
+      display:inline-flex; align-items:center; justify-content:center;
+      font-weight:700;
+    }
+    .brand h1 { font-size:1.05rem; margin:0; font-weight:600; letter-spacing:0.2px; }
+    nav.primary {
+      display:flex;
+      gap: var(--space-3);
+      align-items:center;
+    }
+    nav.primary a {
+      color: rgba(255,255,255,0.95);
+      text-decoration:none;
+      padding: 0.35rem 0.5rem;
+      border-radius:6px;
+      font-weight:600;
+      font-size:0.95rem;
+    }
+    nav.primary a:focus-visible { outline: var(--focus); outline-offset:3px; }
+    .search {
+      display:flex;
+      gap:0.5rem;
+      align-items:center;
+    }
+    .search input {
+      padding: .45rem .65rem;
+      border-radius: 8px;
+      border: none;
+      min-width: 220px;
+    }
+    .search input:focus { outline: var(--focus); }
+
+    main { margin-top: var(--space-4); }
+
+    /* ===== PRESS SECTION ===== */
+    .press {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: var(--space-4);
+      align-items:start;
+    }
+
+    /* Featured box */
+    .featured {
+      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+      padding: var(--space-4);
+      border-radius: var(--radius);
+      display:flex;
+      gap: var(--space-3);
+      align-items:flex-start;
+    }
+
+    .featured .meta {
+      font-size:0.875rem;
+      color: var(--muted);
+      margin-bottom: var(--space-2);
+    }
+
+    .featured h2 {
+      margin:0 0 var(--space-2) 0;
+      font-size:1.4rem;
+      color: #071029;
+      line-height:1.2;
+    }
+
+    .featured p { margin:0; color: #334155; }
+
+    .featured .cta {
+      margin-top: var(--space-3);
+      display:inline-flex;
+      gap: .5rem;
+      align-items:center;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: .5rem .9rem;
+      border-radius: 8px;
+      text-decoration:none;
+      font-weight:600;
+      border: none;
+      cursor:pointer;
+    }
+    .btn.secondary {
+      background: white;
+      color: var(--primary);
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .btn:focus-visible { outline: var(--focus); outline-offset: 3px; }
+
+    /* Listing column */
+    .press-list {
+      display:flex;
+      flex-direction:column;
+      gap: var(--space-3);
+      margin-top: var(--space-2);
+    }
+
+    .press-card {
+      background: var(--card);
+      border-radius: calc(var(--radius) - 2px);
+      padding: var(--space-3);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+      transition: transform .18s ease, box-shadow .18s ease;
+      border: 1px solid rgba(15,23,42,0.03);
+    }
+    .press-card:hover { transform: translateY(-6px); box-shadow: 0 10px 30px rgba(15,23,42,0.08); }
+
+    .press-card h3 { margin: 0 0 .35rem 0; font-size:1.05rem; color:#041426; }
+    .press-card .meta { font-size:0.85rem; color:var(--muted); margin-bottom:.6rem; }
+    .press-card p { margin:0; color:#334155; }
+
+    .controls {
+      display:flex;
+      gap: var(--space-2);
+      align-items:center;
+      margin-bottom: var(--space-2);
+      flex-wrap:wrap;
+    }
+
+    .chip {
+      padding: .35rem .6rem;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid rgba(15,23,42,0.06);
+      font-weight:600;
+      cursor:pointer;
+    }
+    .chip[aria-pressed="true"] {
+      background: color-mix(in srgb, var(--accent) 10%, white 90%);
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow:0 4px 12px rgba(2,6,23,0.06);
+    }
+
+    /* Right column (filters / latest) */
+    .sidebar {
+      position:relative;
+    }
+    .sidebar .card {
+      background: var(--card);
+      padding: var(--space-3);
+      border-radius: var(--radius);
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+    }
+    .sidebar h4 { margin:0 0 var(--space-2) 0; }
+    .small-list { display:flex; flex-direction:column; gap: .6rem; }
+
+    /* Press detail modal (accessible) */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2,6,23,0.45);
+      z-index: 50;
+      padding: var(--space-3);
+    }
+    .modal {
+      width: 100%;
+      max-width: 900px;
+      background: white;
+      border-radius: 12px;
+      padding: var(--space-4);
+      box-shadow: 0 20px 50px rgba(2,6,23,0.4);
+      max-height: 90vh;
+      overflow:auto;
+    }
+    .modal h2{ margin-top:0; }
+    .modal .close { float:right; background:none; border:none; font-weight:700; cursor:pointer; }
+
+    /* ===== FACULTY SECTION ===== */
+    .faculty-section{
+      margin-top: var(--space-6);
+    }
+
+    .faculty-grid {
+      display: grid;
+      gap: var(--space-4);
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top: var(--space-3);
+    }
+
+    .faculty-card {
+      background: var(--card);
+      padding: var(--space-3);
+      border-radius: 12px;
+      display:flex;
+      gap: var(--space-3);
+      align-items:center;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.05);
+      transition: transform .15s ease;
+    }
+    .faculty-card:hover { transform: translateY(-6px); }
+
+    .avatar {
+      width:72px; height:72px; border-radius: 8px;
+      background: linear-gradient(135deg,var(--accent),var(--primary));
+      color:white; display:inline-flex; align-items:center; justify-content:center; font-weight:700;
+      flex-shrink:0;
+    }
+    .faculty-info h3 { margin:0; font-size:1rem; }
+    .faculty-info p { margin:.25rem 0 0 0; color:var(--muted); font-size:.9rem; }
+
+    /* Profile detail */
+    .profile {
+      margin-top: var(--space-4);
+      background: var(--card);
+      padding: var(--space-4);
+      border-radius: 12px;
+      display:flex;
+      gap: var(--space-4);
+      align-items:flex-start;
+      box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+    }
+    .profile .profile-img { width:160px; height:160px; border-radius: 12px; object-fit:cover; }
+    .profile .profile-body { max-width: calc(100% - 180px); }
+
+    /* small helpers */
+    .muted { color: var(--muted); }
+    .visually-hidden { position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+    .alert { padding: .8rem 1rem; border-radius:8px; background: #fff4f2; color: #8b1d1d; border:1px solid #ffd6d0; }
+
+    /* focus visible for interactive elements */
+    a:focus-visible, button:focus-visible, .chip:focus-visible, input:focus-visible {
+      outline: var(--focus);
+      outline-offset: 3px;
+    }
+
+    /* responsive */
+    @media (max-width: 980px) {
+      .press { grid-template-columns: 1fr; }
+      header.site-header { flex-direction: column; align-items: stretch; gap: var(--space-2); }
+      .search input { min-width: 140px; width:100%; }
+    }
+    @media (max-width: 520px) {
+      body { padding: var(--space-2); }
+      .profile { flex-direction: column; }
+      .profile .profile-img { width:120px; height:120px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="site" id="site">
+    <header class="site-header" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">DG</div>
+        <div>
+          <h1>GovInfo — Redesign Lab</h1>
+          <div class="muted" style="font-size:.8rem;">Press & Faculty demo</div>
+        </div>
+      </div>
+
+      <nav class="primary" role="navigation" aria-label="Primary navigation">
+        <a href="#press" id="nav-press">Press</a>
+        <a href="#faculty" id="nav-faculty">Faculty</a>
+        <a href="#services">Services</a>
+      </nav>
+
+      <div class="search" role="search">
+        <label for="global-search" class="visually-hidden">Search site</label>
+        <input id="global-search" placeholder="Search press, people..." aria-label="Search site" />
+        <button class="btn" id="search-btn" aria-label="Search">Search</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== PRESS SECTION ===== -->
+      <section id="press" class="press" aria-labelledby="press-heading">
+        <div>
+          <div class="featured" aria-hidden="false">
+            <div style="flex:1">
+              <p class="meta">Featured · Ministry of New Energy · Oct 12, 2025</p>
+              <h2>India Achieves Record Solar Power Generation</h2>
+              <p>India's renewable energy capacity has reached a significant milestone this quarter — solar production now accounts for a major share of national power generation.</p>
+
+              <div class="cta">
+                <button class="btn" id="open-feature">Read Release</button>
+                <a class="btn secondary" href="#" role="button">Download PDF</a>
+              </div>
+            </div>
+            <div style="width:220px; flex-shrink:0;">
+              <img src="https://picsum.photos/420/300" alt="Solar panels" style="width:100%; height:130px; object-fit:cover; border-radius:8px;">
+              <p class="muted" style="font-size:.85rem; margin-top:.6rem;">Updated just now</p>
+            </div>
+          </div>
+
+          <div style="margin-top: var(--space-3);">
+            <div class="controls" role="toolbar" aria-label="Press filters and controls">
+              <div style="display:flex;gap:.5rem;align-items:center;">
+                <label for="q" class="visually-hidden">Search releases</label>
+                <input id="q" type="search" placeholder="Search releases by title" aria-label="Search releases" />
+                <button id="q-btn" class="chip">Search</button>
+              </div>
+
+              <div style="margin-left:auto; display:flex; gap:.5rem;">
+                <button class="chip" data-filter="all" aria-pressed="true">All</button>
+                <button class="chip" data-filter="ministry">Ministry</button>
+                <button class="chip" data-filter="policy">Policy</button>
+                <button class="chip" data-filter="economy">Economy</button>
+              </div>
+            </div>
+
+            <div id="press-list" class="press-list" aria-live="polite">
+              <!-- Cards inserted by JS (or you can paste static ones) -->
+              <article class="press-card" data-tags="ministry,economy">
+                <h3>New AI Policy Announced</h3>
+                <p class="meta">Ministry of IT · Oct 10, 2025</p>
+                <p>The government introduces a national AI framework to ensure ethical and safe AI development.</p>
+                <div style="margin-top:.8rem;">
+                  <a href="#" class="read-btn" data-id="2">Read More →</a>
+                </div>
+              </article>
+
+              <article class="press-card" data-tags="policy">
+                <h3>Urban Transport Policy Update</h3>
+                <p class="meta">Ministry of Transport · Sep 20, 2025</p>
+                <p>Revised standards for city-level transport infrastructure were published today.</p>
+                <div style="margin-top:.8rem;">
+                  <a href="#" class="read-btn" data-id="3">Read More →</a>
+                </div>
+              </article>
+
+              <!-- Skeleton example (comment / show while loading) -->
+              <!-- <div class="press-card skeleton" aria-hidden="true"></div> -->
+            </div>
+          </div>
+        </div>
+
+        <aside class="sidebar" aria-labelledby="sidebar-heading">
+          <div class="card">
+            <h4 id="sidebar-heading">Latest</h4>
+            <div class="small-list">
+              <a href="#" class="muted">Policy: Education Reform — Oct 8, 2025</a>
+              <a href="#" class="muted">Economy: Growth Highlights — Oct 6, 2025</a>
+              <a href="#" class="muted">Health: Vaccination Drive — Sep 29, 2025</a>
+            </div>
+          </div>
+
+          <div style="height:var(--space-3)"></div>
+
+          <div class="card" aria-hidden="false" style="display:flex;flex-direction:column;gap:.6rem;">
+            <h4>Quick Links</h4>
+            <a class="muted" href="#">Press Guidelines</a>
+            <a class="muted" href="#">Media Contacts</a>
+            <a class="muted" href="#">Archive</a>
+          </div>
+        </aside>
+      </section>
+
+      <!-- PRESS DETAIL MODAL -->
+      <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal" role="document" aria-labelledby="modal-title">
+          <button class="close" id="modal-close" aria-label="Close dialog">✕</button>
+          <h2 id="modal-title">Title placeholder</h2>
+          <p class="meta" id="modal-meta">Ministry • Date</p>
+          <div id="modal-body" style="margin-top:var(--space-2); color:#334155;">
+            <p>Full press release content will appear here. This area uses a constrained readable width and typographic hierarchy (lead paragraph + sections).</p>
+            <h3 style="margin-top:var(--space-3)">Key points</h3>
+            <ul>
+              <li>First main point with detail.</li>
+              <li>Second point.</li>
+            </ul>
+            <p style="margin-top:var(--space-3)"><strong>Download:</strong> <a href="#">PDF</a> • <a href="#">Images</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== FACULTY SECTION ===== -->
+      <section id="faculty" class="faculty-section" aria-labelledby="faculty-heading">
+        <h2 id="faculty-heading">Faculty — Computer Science</h2>
+
+        <div style="display:flex;gap:var(--space-3);align-items:center;justify-content:space-between">
+          <p class="muted">Showing top faculty profiles. Use the search to filter by name or research area.</p>
+          <div>
+            <label class="visually-hidden" for="faculty-search">Search faculty</label>
+            <input id="faculty-search" placeholder="Search faculty..." />
+          </div>
+        </div>
+
+        <div class="faculty-grid" id="faculty-grid" aria-live="polite">
+          <article class="faculty-card" tabindex="0">
+            <div class="avatar" aria-hidden="true">AK</div>
+            <div class="faculty-info">
+              <h3>Dr. A. Kumar</h3>
+              <p class="muted">Associate Professor — AI & ML</p>
+            </div>
+          </article>
+
+          <article class="faculty-card" tabindex="0">
+            <div class="avatar" aria-hidden="true">SR</div>
+            <div class="faculty-info">
+              <h3>Dr. S. Reddy</h3>
+              <p class="muted">Professor — Systems</p>
+            </div>
+          </article>
+
+          <article class="faculty-card" tabindex="0">
+            <div class="avatar" aria-hidden="true">PK</div>
+            <div class="faculty-info">
+              <h3>Dr. P. Krishnan</h3>
+              <p class="muted">Assistant Professor — Databases</p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Profile detail preview (example) -->
+        <div class="profile" id="profile-detail" aria-hidden="true" style="display:none; margin-top: var(--space-4);">
+          <img src="https://picsum.photos/300/300" alt="Profile photo" class="profile-img" />
+          <div class="profile-body">
+            <h3 id="profile-name">Dr. A. Kumar</h3>
+            <p class="designation">Associate Professor, Computer Science</p>
+            <p id="profile-blurb">Research Interests: Artificial Intelligence, Machine Learning, Data Mining. Dr. Kumar leads the Applied AI lab and has 50+ publications.</p>
+            <p style="margin-top:var(--space-2)"><a href="#">View full profile</a> • <a href="#">Publications</a> • <a href="#">Contact</a></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- small accessible examples: skeleton + alerts -->
+      <section style="margin-top: var(--space-6);">
+        <h2>UX helpers</h2>
+        <div style="display:flex;gap:var(--space-3);flex-wrap:wrap;">
+          <div style="width:320px;">
+            <div class="press-card" aria-hidden="true" style="height:90px; background:linear-gradient(90deg,#f0f0f0 25%,#e8e8e8 37%,#f0f0f0 63%); background-size:200% 100%; animation: shimmer 1.3s infinite;">
+            </div>
+            <p class="muted" style="margin-top:.6rem;">Skeleton loader (CSS-only)</p>
+          </div>
+
+          <div style="width:320px;">
+            <div class="alert" role="status">⚠️ Example error: Upload failed. Check your connection and retry.</div>
+            <p class="muted" style="margin-top:.6rem;">Accessible alert with <code>role="status"</code>.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer style="margin-top: var(--space-6); text-align:center; color:var(--muted);">
+      © 2025 GovInfo Redesign Lab — paste your annotated screenshots and notes in <code>notes.md</code>
+    </footer>
+  </div>
+
+  <script>
+    /* Small JS for interactions (search/filter/modal/profile) */
+
+    // Modal - open featured / read more
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modal-close');
+    const openFeature = document.getElementById('open-feature');
+    const pressList = document.getElementById('press-list');
+
+    function openModal(title, meta, html) {
+      document.getElementById('modal-title').textContent = title;
+      document.getElementById('modal-meta').textContent = meta;
+      document.getElementById('modal-body').innerHTML = html;
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden','false');
+      modal.querySelector('.modal').focus();
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(){
+      modal.style.display = 'none';
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }
+
+    openFeature.addEventListener('click', () => {
+      openModal('India Achieves Record Solar Power Generation', 'Ministry of New Energy · Oct 12, 2025', '<p>Full release content — example paragraph with readable line length and section headings. This simulates a real press release that is constrained for reading comfort (max-width ~65ch inside modal).</p><p style="margin-top:.6rem">More details and links.</p>');
+    });
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // Read more links open modal with example content
+    document.querySelectorAll('.read-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // sample mapping by data-id (if present)
+        const id = btn.getAttribute('data-id') || '0';
+        const sample = {
+          '0': {title:'Sample Release', meta:'Ministry · Oct 2025', body:'<p>Details for sample release.</p>'},
+          '2': {title:'New AI Policy Announced', meta:'Ministry of IT · Oct 10, 2025', body:'<p>The national AI framework aims to set clear standards for deploying AI ethically across sectors.</p>'},
+          '3': {title:'Urban Transport Policy Update', meta:'Ministry of Transport · Sep 20, 2025', body:'<p>Updated guidelines for city transport initiatives and funding streams.</p>'}
+        };
+        const data = sample[id] || sample['0'];
+        openModal(data.title, data.meta, data.body);
+      });
+    });
+
+    // Filters (chips)
+    document.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', (e) => {
+        const filter = chip.dataset.filter || 'all';
+        // toggle pressed state
+        if (filter === 'all') {
+          // reset all chips
+          document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed','false'));
+          chip.setAttribute('aria-pressed','true');
+        } else {
+          // single-select simple behavior
+          document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed','false'));
+          chip.setAttribute('aria-pressed','true');
+        }
+
+        // filter cards
+        const cards = document.querySelectorAll('.press-card');
+        cards.forEach(card => {
+          const tags = card.dataset.tags || '';
+          if (filter === 'all' || tags.includes(filter)) { card.style.display = ''; } else { card.style.display = 'none'; }
+        });
+      });
+    });
+
+    // Simple search on press titles
+    document.getElementById('q-btn').addEventListener('click', () => {
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      const cards = document.querySelectorAll('.press-card');
+      cards.forEach(card => {
+        const txt = card.innerText.toLowerCase();
+        card.style.display = q === '' || txt.includes(q) ? '' : 'none';
+      });
+    });
+
+    // Faculty search: filter cards
+    const facultySearch = document.getElementById('faculty-search');
+    const facultyGrid = document.getElementById('faculty-grid');
+    if (facultySearch) {
+      facultySearch.addEventListener('input', e => {
+        const q = e.target.value.trim().toLowerCase();
+        document.querySelectorAll('.faculty-card').forEach(card => {
+          const txt = card.innerText.toLowerCase();
+          card.style.display = q === '' || txt.includes(q) ? '' : 'none';
+        });
+      });
+    }
+
+    // Clicking a faculty card shows profile detail (demo)
+    document.querySelectorAll('.faculty-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const name = card.querySelector('h3')?.textContent || 'Profile';
+        document.getElementById('profile-name').textContent = name;
+        document.getElementById('profile-blurb').textContent = 'Research Interests: Example area. Short bio and main publications. (Demo content.)';
+        const pd = document.getElementById('profile-detail');
+        pd.style.display = 'block';
+        pd.removeAttribute('aria-hidden');
+        pd.scrollIntoView({behavior:'smooth', block:'center'});
+      });
+    });
+
+    // small "search site" button (header)
+    document.getElementById('search-btn').addEventListener('click', () => {
+      const q = document.getElementById('global-search').value.trim();
+      if (!q) {
+        alert('Try searching for "solar", "AI policy", or a faculty name.');
+      } else {
+        // naive highlight: filter press
+        document.querySelectorAll('.press-card').forEach(card => {
+          card.style.display = card.innerText.toLowerCase().includes(q.toLowerCase()) ? '' : 'none';
+        });
+      }
+    });
+
+    // shimmer animation (css-only) - define here for skeletons
+    const style = document.createElement('style');
+    style.textContent = `@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}`;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

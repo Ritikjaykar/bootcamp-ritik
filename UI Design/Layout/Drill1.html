@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drill 1 — Medium Article Layout</title>
+  <style>
+    :root {
+      --space-1: 0.5rem;
+      --space-2: 1rem;
+      --space-3: 1.5rem;
+      --space-4: 2rem;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      line-height: 1.7;
+      color: #222;
+      max-width: 75ch;
+      margin: auto;
+      padding: var(--space-4);
+    }
+
+    h1, h2 {
+      margin-top: var(--space-4);
+      margin-bottom: var(--space-2);
+      line-height: 1.3;
+    }
+
+    p {
+      margin-bottom: var(--space-3);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin: var(--space-3) 0;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: var(--space-2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Designing for Simplicity</h1>
+  <p><em>By Ritik Jaykar</em> • 5 min read</p>
+  <img src="https://picsum.photos/800/400" alt="Article banner">
+
+  <p>Good design is invisible. It serves its purpose quietly and confidently without demanding attention. This article explores how spacing and typography create clarity and focus in digital layouts.</p>
+
+  <h2>The Role of Whitespace</h2>
+  <p>Whitespace is more than empty space; it’s what gives breathing room to elements. Medium uses consistent spacing scales to guide the reader’s eyes.</p>
+
+  <p>Notice how every paragraph feels balanced? That’s the power of consistent rhythm—each section has just enough room to rest visually.</p>
+</body>
+</html>
